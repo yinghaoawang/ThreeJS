@@ -1,0 +1,48 @@
+<html lang="en">
+	<head>
+		<title>ThreeJS</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				color: #333;
+			}
+		</style>
+	</head>
+	<body>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./js/three.module.js"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+
+        const mouseCoords = new THREE.Vector2();
+
+        init();
+
+        function init() {
+            initInput();
+        }
+
+        function initInput() {
+
+            window.addEventListener('pointerdown', function(event) {
+                mouseCoords.set(
+                    (event.clientX / window.innerWidth) * 2 - 1,
+                    - (event.clientY / window.innerHeight) * 2 + 1
+                );
+                console.log(mouseCoords);
+            });
+        }
+
+
+    </script>
+
+    </body>
+</html>
